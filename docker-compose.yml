@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  bikeconsumer:
+    build: .
+    volumes:
+     - ./src:./src/ProducerQueue
+    ports:
+     - "8000:8000"
+    labels:
+      name: "Producer for Dublin Bus Job"
+      role: "Producer App"
