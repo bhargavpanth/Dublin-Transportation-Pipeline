@@ -17,3 +17,6 @@
 
 #### Remote instance
  * ```---host=mongodb://IP_ADD:27017/```
+
+## Repo update
+RabbitMQ is probably not the best solution for streaming high volume data (potentially data from Dublin Bus and Dublin Bikes in the interval of few seconds). Considering moving to using Kafka and PySpark.
