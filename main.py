@@ -5,22 +5,19 @@ PYTHONPATH="location_of_this_folder/src/DublinBikes"
 '''
 import argparse
 import sys
-sys.path.append('lib/DublinBus/')
-sys.path.append('lib/DublinBikes/')
-sys.path.append('src/ProducerQueue/')
-
-from DublinBikes import DublinBikes
-from DublinBus import DublinBus
-# producer pipeline
-from ProducerQueue import ProducerPipeline
-# utilites
-import utils
 import json
 import unicodedata
 import pymongo
 from pymongo import MongoClient
 import datetime
 import bson
+sys.path.append('lib/DublinBus/')
+sys.path.append('lib/DublinBikes/')
+sys.path.append('src/ProducerQueue/')
+from DublinBikes import DublinBikes
+from DublinBus import DublinBus
+from ProducerQueue import ProducerPipeline
+import utils
 
 
 def main(flag, host, start_index, end_index):
@@ -41,32 +38,7 @@ def main(flag, host, start_index, end_index):
 		bus_info = new_dublin_bus.get_route_information()
 		sample.send_message(bus_info)
 
-
-	# # MongoDB - Direct
-	# # 'mongodb://ec2-34-245-171-228.eu-west-1.compute.amazonaws.com:27017/'
-	# client = MongoClient(host)
-	# db = client['dublinbus']
-	# '''	
-	# Transfer this stub to test
-	# print len(model_obj)
-	# print type(model_obj)
-	# '''
-	# for each_object in model_obj:
-	# 	stop_num = each_object['id']
-	# 	new_dublin_bus = DublinBus(str(stop_num))
-	# 	bus_info = new_dublin_bus.get_route_information()
-	# 	# print bus_info
-	# 	# posts = bson.son.SON(db.bus_info)
-	# 	# posts = db.posts
-	# 	post_id = db.bus.insert_one(bus_info)
-	# 	print post_id
-	# 	# print '---'
-	# 	# print bus_info
-	# 	# pipeline.send_message(bus_info)
-
-
 if __name__ == '__main__':
-	
 	parser = argparse.ArgumentParser()
 	# default='bus'
 	parser.add_argument('--flag', type=str, help='Name of the queue (bus | bike | luas)')
