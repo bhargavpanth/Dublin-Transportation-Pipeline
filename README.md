@@ -19,4 +19,5 @@
  * ```---host=mongodb://IP_ADD:27017/```
 
 ## Repo update
-RabbitMQ is probably not the best solution for streaming high volume data (potentially data from Dublin Bus and Dublin Bikes in the interval of few seconds). Considering moving to using Kafka and PySpark.
+- RabbitMQ is probably not the best solution for streaming high volume data (potentially data from Dublin Bus and Dublin Bikes in the interval of few seconds). Considering moving to using Kafka and PySpark.
+- This repo will undergo active maintenance for the next few months. Will be replacing RabbitMQ with Apache Kafka and Spark for stream processing (MLlib)
