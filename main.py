@@ -26,9 +26,6 @@ def main(flag, host, start_index, end_index):
 	# chunk the model into fragments between start and end index
 	util = utils.Utilities()
 	model_obj = util.chunk_json_object(start_index, end_index)
-
-	print(model_obj)
-	exit()
 	'''
 	Transfer this stub to test
 	print len(model_obj)
