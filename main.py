@@ -16,17 +16,19 @@ sys.path.append('lib/DublinBikes/')
 sys.path.append('src/ProducerQueue/')
 from DublinBikes import DublinBikes
 from DublinBus import DublinBus
-from ProducerQueue import ProducerPipeline
+# from ProducerQueue import ProducerPipeline
 import utils
-
 
 def main(flag, host, start_index, end_index):
 	## init the dublin bus with route_id and id
-	sample = ProducerPipeline(flag, host)
+	# sample = ProducerPipeline(flag, host)
 	# run the model between the indices
 	# chunk the model into fragments between start and end index
 	util = utils.Utilities()
 	model_obj = util.chunk_json_object(start_index, end_index)
+
+	print(model_obj)
+	exit()
 	'''
 	Transfer this stub to test
 	print len(model_obj)
@@ -39,6 +41,10 @@ def main(flag, host, start_index, end_index):
 		sample.send_message(bus_info)
 
 if __name__ == '__main__':
+	main('test', 'localhost', 0, 100)
+
+'''
+if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	# default='bus'
 	parser.add_argument('--flag', type=str, help='Name of the queue (bus | bike | luas)')
@@ -48,3 +54,4 @@ if __name__ == '__main__':
 
 	args, unparsed = parser.parse_known_args()
 	main(args.flag, args.host, args.start_index, args.end_index)
+'''
