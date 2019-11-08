@@ -31,10 +31,11 @@ def main(flag, host, start_index, end_index):
 		stop_num = each_object['id']
 		new_dublin_bus = DublinBus(str(stop_num))
 		bus_info = new_dublin_bus.get_route_information()
-		sample.send_message(bus_info)
+		print(bus_info)
+		# sample.send_message(bus_info)
 
 if __name__ == '__main__':
-	main('test', 'localhost', 0, 100)
+	main('test', 'localhost', 0, 1)
 
 '''
 if __name__ == '__main__':
