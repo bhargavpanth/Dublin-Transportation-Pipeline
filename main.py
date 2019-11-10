@@ -19,6 +19,7 @@ def main(flag, host, start_index, end_index):
 	# run the model between the indices
 	# chunk the model into fragments between start and end index
 	util = utils.Utilities()
+	# Replace chunking with fencing
 	model_obj = util.chunk_json_object(start_index, end_index)
 
 	for each_object in model_obj:
