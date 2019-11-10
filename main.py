@@ -5,12 +5,6 @@ PYTHONPATH="location_of_this_folder/src/DublinBikes"
 '''
 import argparse
 import sys
-import json
-import unicodedata
-import pymongo
-from pymongo import MongoClient
-import datetime
-import bson
 sys.path.append('lib/DublinBus/')
 sys.path.append('lib/DublinBikes/')
 sys.path.append('src/ProducerQueue/')
@@ -35,10 +29,6 @@ def main(flag, host, start_index, end_index):
 		# sample.send_message(bus_info)
 
 if __name__ == '__main__':
-	main('test', 'localhost', 0, 1)
-
-'''
-if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	# default='bus'
 	parser.add_argument('--flag', type=str, help='Name of the queue (bus | bike | luas)')
@@ -48,4 +38,3 @@ if __name__ == '__main__':
 
 	args, unparsed = parser.parse_known_args()
 	main(args.flag, args.host, args.start_index, args.end_index)
-'''
