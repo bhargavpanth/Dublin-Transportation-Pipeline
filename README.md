@@ -3,6 +3,13 @@
 ## UPDATE
 This repo is under active maintenance. Updates will be documented here.
 
+## Requirements
+- `docker`
+
+## Setup
+- `docker swarm init`
+- `docker-compose up`
+
 ### What does this project do?
  * Using the modules created in [here]('https://gitlab.scss.tcd.ie/panthb/Dublin-Transport_RPP'), the project establishes a pipeline to push messages into a queue (RabbitMQ)
 
