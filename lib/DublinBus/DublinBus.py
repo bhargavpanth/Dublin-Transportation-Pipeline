@@ -4,6 +4,8 @@ Building the Dublin Bus into a pyton module
 
 import requests
 import urllib
+import http.client
+import base64
 import json
 import sys
 import os
@@ -11,6 +13,8 @@ import numpy as np
 
 class DublinBus:
 	def __init__(self, stop_id):
+		self.header = { 'Cache-Control': 'no-cache', 'x-api-key': '82fd716f61ed4a2082e59ab03ceb4ca8' }
+		# https://api.nationaltransport.ie/gtfsrtest/?format=json
 		self._url = 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?'
 		self.stop_id = stop_id
 		self.query_parameter = { 'stopid' : stop_id }
