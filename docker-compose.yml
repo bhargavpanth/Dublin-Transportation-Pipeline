@@ -1,31 +1,14 @@
-version: '3'
+version: 3
 services:
-  # Create a service called spark-master
-  spark-master:
-    image: 'sdesilva26/spark_master:0.0.2'
+  rabbitmq:
+    image: rabbitmq:3.7-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
     ports:
-      - '7080:7080'
-    networks:
-      - spark-net
-    deploy:
-      placement:
-        constraints:
-          - node.labels.role==master
-  # Create a second service called spark-worker
-  spark-worker:
-    image: 'sdesilva26/spark_worker:0.0.2'
-    ports:
-      - '9091:9091'
+      - '7000:15672'
+      - '7001:5672'
     environment:
-      - CORES=3
-      - MEMORY=15G
-    deploy:
-      placement:
-        constraints:
-          - node.labels.role==worker
-      replicas: 3
-    networks:
-      - spark-net
-networks:
-  spark-net:
-    driver: overlay
+      - RABBITMQ_DEFAULT_USER=rabbitmquser
+      - RABBITMQ_DEFAULT_PASS=some_password
