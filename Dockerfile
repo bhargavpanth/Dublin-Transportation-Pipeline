@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-FROM python:2
+FROM python:3.8
 
 ADD ./ Dublin_Bus_pipeline/
 

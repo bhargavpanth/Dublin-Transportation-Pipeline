@@ -1,14 +1,21 @@
-version: 3
+version: "3"
 services:
   rabbitmq:
-    image: rabbitmq:3.7-management
-    container_name: rabbitmq
-    hostname: rabbitmq
-    volumes:
-      - rabbitmqdata:/var/lib/rabbitmq
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: "rabbitmq-3.7"
+    restart: always
     ports:
-      - '7000:15672'
-      - '7001:5672'
-    environment:
-      - RABBITMQ_DEFAULT_USER=rabbitmquser
-      - RABBITMQ_DEFAULT_PASS=some_password
+    - 5672:5672
+    - 15672:15672
+    volumes:
+    - ./rabbitmq/etc/:/etc/rabbitmq/
+    - ./rabbitmq/data/:/var/lib/rabbitmq/
+    - ./rabbitmq/logs/:/var/log/rabbitmq/
+    environment: 
+    - RABBITMQ_DEFAULT_USER=guest
+    - RABBITMQ_DEFAULT_PASS=guest
+    - RABBITMQ_NODENAME=rabbitnode@localhost
+    - RABBITMQ_USER=rabbit
+    - RABBITMQ_PASSWORD=rabbit
