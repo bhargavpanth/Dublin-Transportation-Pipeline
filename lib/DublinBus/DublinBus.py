@@ -11,6 +11,8 @@ import sys
 import os
 
 class DublinBus:
+	# Dublin transportation API will be deprecated end of next year
+	# must move to the new one
 	def __init__(self, stop_id):
 		self.header = { 'Cache-Control': 'no-cache', 'x-api-key': '82fd716f61ed4a2082e59ab03ceb4ca8' }
 		# https://api.nationaltransport.ie/gtfsrtest/?format=json
