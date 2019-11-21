@@ -12,10 +12,9 @@ import os
 
 class DublinBus:
 	# Dublin transportation API will be deprecated end of next year
-	# must move to the new one
+	# must move to the new one - https://api.nationaltransport.ie/gtfsrtest/?format=json
 	def __init__(self, stop_id):
 		self.header = { 'Cache-Control': 'no-cache', 'x-api-key': '82fd716f61ed4a2082e59ab03ceb4ca8' }
-		# https://api.nationaltransport.ie/gtfsrtest/?format=json
 		self._url = 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?'
 		self.stop_id = stop_id
 		self.query_parameter = { 'stopid' : stop_id }
