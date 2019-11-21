@@ -9,7 +9,6 @@ import base64
 import json
 import sys
 import os
-import numpy as np
 
 class DublinBus:
 	def __init__(self, stop_id):
