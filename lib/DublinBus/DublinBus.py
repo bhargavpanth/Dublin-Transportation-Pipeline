@@ -23,7 +23,7 @@ class DublinBus:
 	def select_response(self,response):
 		values = dict()
 		res = response.json()
-		values[str(self.stop_id)] = res["results"]
+		values[str(self.stop_id)] = res['results']
 		return json.dumps(values)
 
 	def get_route_information(self):
