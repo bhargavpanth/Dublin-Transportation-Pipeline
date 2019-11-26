@@ -5,10 +5,7 @@ This repo is under active maintenance. Updates will be documented here.
 
 ## Requirements
 - `docker`
-
-## Setup
-- `docker swarm init`
-- `docker-compose up`
+- `RabbitMQ` (will be moving to supporting RabbitMQ on Docker shortly)
 
 ### What does this project do?
  * Using the modules created in [here]('https://gitlab.scss.tcd.ie/panthb/Dublin-Transport_RPP'), the project establishes a pipeline to push messages into a queue (RabbitMQ)
@@ -27,6 +24,6 @@ This repo is under active maintenance. Updates will be documented here.
 #### Remote instance
  * ```---host=mongodb://IP_ADD:27017/```
 
-## Repo update
+## Repo update (To-do)
 - RabbitMQ is probably not the best solution for streaming high volume data (potentially data from Dublin Bus and Dublin Bikes in the interval of few seconds). Considering moving to using Kafka and PySpark.
 - This repo will undergo active maintenance for the next few months. Will be replacing RabbitMQ with Apache Kafka and Spark for stream processing (MLlib)
