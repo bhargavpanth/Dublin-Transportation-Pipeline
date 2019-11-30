@@ -8,5 +8,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Copy source
+COPY /app .
 
 # Run application
+CMD [ "python", "main.py" ]
