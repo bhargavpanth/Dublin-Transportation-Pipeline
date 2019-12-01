@@ -11,4 +11,5 @@ RUN pip3 install -r requirements.txt
 COPY /app .
 
 # Run application
+# extension required
 CMD [ "python", "main.py" ]
