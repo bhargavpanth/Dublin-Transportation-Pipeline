@@ -8,7 +8,9 @@ This repo is under active maintenance. Updates will be documented here.
 - `RabbitMQ` (will be moving to supporting RabbitMQ on Docker shortly)
 
 ### What does this project do?
- * Using the modules created in [here]('https://gitlab.scss.tcd.ie/panthb/Dublin-Transport_RPP'), a data pipeline is established
+ * Produces a stream of data from Dublin Bus, Dublin Bikes and some other dependent variables such as weather
+ - This data is ingested into a RabbitMQ MQ
+ - Consumers subscribe to these topics and build an online learning model
 
 #### RabbitMQ specifics
 - `docker-compose up`
